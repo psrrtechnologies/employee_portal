@@ -6,24 +6,6 @@ from .models import Profile
 from .models import Employee, IDCard
 import datetime
 
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
-
-@receiver(post_save, sender=User)
-def create_or_update_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.get_or_create(user=instance)  # 🔁 Prevents IntegrityError
-    else:
-        # only update if it exists
-        if hasattr(instance, 'profile'):
-            instance.profile.save()
-
 
 @receiver(post_save, sender=Employee)
 def sync_or_create_idcard(sender, instance, created, **kwargs):
