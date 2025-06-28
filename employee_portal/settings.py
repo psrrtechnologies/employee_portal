@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'psrrtech',
     'accounts',
+    'hr',
+    'payroll',
 ]
 
 MIDDLEWARE = [
