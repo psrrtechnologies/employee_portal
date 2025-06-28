@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Check Your Email | PSRR TECHNOLOGIES</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="login-body">
+
+<div class="confirmation-card">
+  <a href="{% url 'home' %}">
+    <img src="{% static 'images/company_logo.png' %}" alt="Company Logo" class="confirmation-logo">
+  </a>
+
+  <div class="confirmation-icon">
+    <span class="checkmark">✔</span>
+  </div>
+
+  <h2 class="confirmation-title">Check your email</h2>
+  <p class="confirmation-text">
+    We’ve sent you an email with instructions to reset your password.<br>
+    Please check your inbox and follow the link.
+  </p>
+
+  <a href="{% url 'login' %}" class="confirmation-button">← Back to Sign in page</a>
+</div>
+
+</body>
+</html>
