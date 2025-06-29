@@ -17,9 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import TemplateView
+from django.contrib.auth import views as auth_views
+from psrrtech.views import forgot_password
+from django.shortcuts import render
+from accounts.views import contact_us
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),  # 👈 include accounts routes
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('forgot-password/', forgot_password, name='forgot_password'),
+    path('reset-link-sent/', lambda request: render(request, 'accounts/reset_link_sent.html'), name='reset_link_sent'),
+    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('contact/', contact_us, name='contact_us'),
 ]

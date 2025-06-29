@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PSRR TECHNOLOGIES</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+
+<!-- ✅ Header -->
+<header class="header">
+    <div class="header-left">
+        <a>
+            <img src="{% static 'images/company_logo.png' %}" alt="Company Logo" class="company-logo">
+        </a>
+    </div>
+</header>
+
+
+<!-- ✅ Main Content -->
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- ✅ Footer -->
+<footer class="footer">
+    <hr>
+    <div class="footer-address">
+            <p>
+                <strong>Address:</strong>
+                <a href="https://www.google.com/maps/place/PSRR+TECHNOLOGIES/@16.9128161,79.1427784,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcad97b6b84d465:0xbc8b8fe01019b481!8m2!3d16.9128161!4d79.1453533!16s%2Fg%2F11g6j6lyc0?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D"
+                   target="_blank">
+                    10-79, Aregudem, Koppole, Gurrampode, Nalgonda, Telangana, India - 508 256.
+                </a>
+            </p>
+    </div>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Phone</h4>
+            <p>+91 87903 24676</p>
+        </div>
+        <div class="footer-section">
+            <h4>Email</h4>
+            <p>info@psrrtech.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/psrrtechnologies/" target="_blank">
+                    <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" />
+                </a>
+                <a href="https://x.com/psrrtechnologies" target="_blank">
+                    <img src="{% static 'images/x.png' %}" alt="X" />
+                </a>
+                <a href="https://facebook.com/psrrtechnologies" target="_blank">
+                    <img src="{% static 'images/facebook.png' %}" alt="facebook" />
+                </a>
+                <a href="https://instagram.com/psrrtechnologies" target="_blank">
+                    <img src="{% static 'images/instagram.png' %}" alt="instagram" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-section copyright">
+            <p>© {% now "Y" %} By PSRR Technologies.</p>
+            <p>All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
