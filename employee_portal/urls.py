@@ -24,7 +24,8 @@ from accounts.views import contact_us
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),  # 👈 include accounts routes
+    path('accounts/', include('accounts.urls')),
+    path('', include('psrrtech.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('forgot-password/', forgot_password, name='forgot_password'),
     path('reset-link-sent/', lambda request: render(request, 'accounts/reset_link_sent.html'), name='reset_link_sent'),
