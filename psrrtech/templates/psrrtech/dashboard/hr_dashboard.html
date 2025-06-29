@@ -1,16 +1,14 @@
-{% extends 'psrrtech/base1.html' %}
-{% load static %}
-{% comment %} hr_dashboard.html {% endcomment %}
+{% extends "psrrtech/dashboard/base_dashboard.html" %}
+
+{% block tabs %}
+  <a href="#">All Employees</a>
+  <a href="#">Add Employee</a>
+  <a href="#">Bank Records</a>
+  <a href="#">Attendance Logs</a>
+  <a href="#">Payroll Management</a>
+{% endblock %}
+
 {% block content %}
-<div class="dashboard-container">
-  <h2>HR Dashboard</h2>
-  <ul class="dashboard-list">
-    <li><a href="/admin/psrrtech/employee/">Add/View Employees</a></li>
-    <li><a href="/admin/psrrtech/bankdetails/">Edit Bank Details</a></li>
-    <li><a href="/admin/psrrtech/idcard/">Issue ID Cards</a></li>
-    <li><a href="/admin/psrrtech/workstation/">Assign Workstations</a></li>
-    <li><a href="/admin/psrrtech/attendance/">Track Attendance</a></li>
-    <li><a href="/admin/psrrtech/payroll/">Process Payroll</a></li>
-  </ul>
-</div>
+  <h2 class="text-xl font-semibold">HR Control Panel</h2>
+  <p>You can manage employee records, view attendance and update payroll.</p>
 {% endblock %}

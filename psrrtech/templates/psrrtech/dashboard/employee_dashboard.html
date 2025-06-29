@@ -1,16 +1,15 @@
-{% extends 'psrrtech/base1.html' %}
-{% load static %}
-{% comment %} employee_dashboard.html {% endcomment %}
+{% extends "psrrtech/dashboard/base_dashboard.html" %}
+
+{% block tabs %}
+  <a href="#">Employee Info</a>
+  <a href="#">Bank Details</a>
+  <a href="#">ID Card</a>
+  <a href="#">Workstation</a>
+  <a href="#">Attendance</a>
+  <a href="#">Payroll</a>
+{% endblock %}
+
 {% block content %}
-<div class="dashboard-container">
-  <h2>My Dashboard</h2>
-  <ul class="dashboard-list">
-    <li><a href="/admin/psrrtech/employee/{{ user.employee.id }}/change/">Edit Personal Info</a></li>
-    <li><a href="/admin/psrrtech/bankdetails/{{ user.employee.bankdetails.id }}/change/">Edit Bank Info</a></li>
-    <li><a href="/admin/psrrtech/idcard/{{ user.employee.idcard.id }}/change/">View ID Card</a></li>
-    <li><a href="/admin/psrrtech/workstation/{{ user.employee.workstation.id }}/change/">My Workstation</a></li>
-    <li><a href="/admin/psrrtech/attendance/?employee__id__exact={{ user.employee.id }}">My Attendance</a></li>
-    <li><a href="/admin/psrrtech/payroll/?employee__id__exact={{ user.employee.id }}">My Payroll</a></li>
-  </ul>
-</div>
+  <h2 class="text-xl font-semibold">Your Overview</h2>
+  <p>Use the tabs above to view or edit your details.</p>
 {% endblock %}

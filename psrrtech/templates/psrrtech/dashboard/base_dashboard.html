@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | PSRR TECHNOLOGIES</title>
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body class="{% if request.COOKIES.theme == 'dark' %}dark-mode{% endif %}">
+  <header class="dashboard-header">
+    <div class="logo-title">
+      <img src="{% static 'images/company_logo.png' %}" alt="Logo" class="logo">
+      <span class="company-name">PSRR TECHNOLOGIES</span>
+    </div>
+    <div class="dashboard-actions">
+      <span>Welcome, {{ user.first_name }} {{ user.last_name }}</span>
+      <a href="#">Change Password</a>
+      <a href="#" onclick="showLogoutPopup()">Logout</a>
+    </div>
+  </header>
+
+  <!-- Role-Based Tab Navigation -->
+  <nav class="tab-bar">
+    {% block tabs %}{% endblock %}
+  </nav>
+
+  <main class="dashboard-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Logout Popup -->
+  <div id="logoutModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you want to logout?</p>
+      <button onclick="window.location.href='#'">Yes</button>
+      <button onclick="hideLogoutPopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    function showLogoutPopup() {
+      document.getElementById('logoutModal').classList.remove('hidden');
+    }
+    function hideLogoutPopup() {
+      document.getElementById('logoutModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

@@ -20,4 +20,4 @@ def dashboard_router(request):
     elif role == 'employee':
         return render(request, 'psrrtech/dashboard/employee_dashboard.html')
     else:
-        return redirect('login')  # Or a 403 page
+        return render(request, '403.html', status=403) 
