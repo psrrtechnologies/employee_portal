@@ -1,0 +1,48 @@
+{% extends 'psrrtech/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Admin Dashboard -->
+{% if user.profile.role == 'admin' %}
+  <div class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Admin Dashboard</h2>
+    <ul class="list-disc ml-6">
+      <li><a href="{% url 'admin:psrrtech_employee_changelist' %}" class="text-blue-600 hover:underline">Manage Employees</a></li>
+      <li><a href="{% url 'admin:psrrtech_bankdetails_changelist' %}" class="text-blue-600 hover:underline">Manage Bank Details</a></li>
+      <li><a href="{% url 'admin:psrrtech_idcard_changelist' %}" class="text-blue-600 hover:underline">Manage ID Cards</a></li>
+      <li><a href="{% url 'admin:psrrtech_workstation_changelist' %}" class="text-blue-600 hover:underline">Manage Workstations</a></li>
+      <li><a href="{% url 'admin:psrrtech_attendance_changelist' %}" class="text-blue-600 hover:underline">Manage Attendance</a></li>
+      <li><a href="{% url 'admin:psrrtech_payroll_changelist' %}" class="text-blue-600 hover:underline">Manage Payroll</a></li>
+      <li><a href="{% url 'admin:auth_user_changelist' %}" class="text-blue-600 hover:underline">Manage Users</a></li>
+    </ul>
+  </div>
+
+<!-- HR Dashboard -->
+{% elif user.profile.role == 'hr' %}
+  <div class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">HR Dashboard</h2>
+    <ul class="list-disc ml-6">
+      <li><a href="{% url 'admin:psrrtech_employee_add' %}" class="text-blue-600 hover:underline">Add New Employee</a></li>
+      <li><a href="{% url 'admin:psrrtech_employee_changelist' %}" class="text-blue-600 hover:underline">View Employees</a></li>
+      <li><a href="{% url 'admin:psrrtech_idcard_changelist' %}" class="text-blue-600 hover:underline">Manage ID Cards</a></li>
+      <li><a href="{% url 'admin:psrrtech_attendance_changelist' %}" class="text-blue-600 hover:underline">Mark/View Attendance</a></li>
+      <li><a href="{% url 'admin:psrrtech_payroll_changelist' %}" class="text-blue-600 hover:underline">Manage Payroll</a></li>
+    </ul>
+  </div>
+
+<!-- Employee Dashboard -->
+{% elif user.profile.role == 'employee' %}
+  <div class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Employee Dashboard</h2>
+    <ul class="list-disc ml-6">
+      <li><a href="{% url 'admin:psrrtech_employee_change' user.employee.id %}" class="text-blue-600 hover:underline">My Profile</a></li>
+      <li><a href="{% url 'admin:psrrtech_bankdetails_change' user.employee.bankdetails.id %}" class="text-blue-600 hover:underline">Edit Bank Info</a></li>
+      <li><a href="{% url 'admin:psrrtech_idcard_change' user.employee.idcard.id %}" class="text-blue-600 hover:underline">View ID Card</a></li>
+      <li><a href="{% url 'admin:psrrtech_attendance_changelist' %}" class="text-blue-600 hover:underline">My Attendance Records</a></li>
+      <li><a href="{% url 'admin:psrrtech_payroll_changelist' %}" class="text-blue-600 hover:underline">My Payroll History</a></li>
+    </ul>
+  </div>
+{% endif %}
+
+{% endblock %}
