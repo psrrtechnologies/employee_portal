@@ -1,0 +1,19 @@
+{% extends 'psrrtech/base1.html' %}
+{% load static %}
+{% extends 'psrrtech/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-container">
+  <h2>Admin Dashboard</h2>
+  <ul class="dashboard-list">
+    <li><a href="/admin/psrrtech/employee/">Manage Employees</a></li>
+    <li><a href="/admin/psrrtech/bankdetails/">Manage Bank Details</a></li>
+    <li><a href="/admin/psrrtech/idcard/">Manage ID Cards</a></li>
+    <li><a href="/admin/psrrtech/workstation/">Manage Workstations</a></li>
+    <li><a href="/admin/psrrtech/attendance/">Manage Attendance</a></li>
+    <li><a href="/admin/psrrtech/payroll/">Manage Payroll</a></li>
+    <li><a href="/admin/auth/user/">Manage Users & Roles</a></li>
+  </ul>
+</div>
+{% endblock %}
